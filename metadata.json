@@ -1,0 +1,6 @@
+{
+  "name": "SHOP.CO | Egyptian Minimal Fashion Store",
+  "description": "Production-ready, premium minimal e-commerce storefront for an Egyptian clothing brand with bilingual Arabic/English, instant checkout, and Egyptian delivery integration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
