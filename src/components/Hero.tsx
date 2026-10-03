@@ -1,6 +1,5 @@
 import React from 'react';
 import { Sparkle, ArrowRight, ArrowLeft } from 'lucide-react';
-import heroModelsImg from '../assets/images/hero_fashion_models_1791026488998.jpg';
 
 interface HeroProps {
   onShopNow: () => void;
@@ -88,7 +87,7 @@ export const Hero: React.FC<HeroProps> = ({ onShopNow, isArabic }) => {
 
             <div className="relative w-full max-w-md lg:max-w-none pt-4">
               <img
-                src={heroModelsImg}
+                src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1200&auto=format&fit=crop&q=80"
                 alt="Contemporary Egyptian Fashion Collection"
                 className="w-full h-auto object-cover object-bottom rounded-t-2xl sm:rounded-none drop-shadow-xl"
                 loading="eager"
