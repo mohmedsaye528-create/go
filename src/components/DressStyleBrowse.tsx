@@ -1,4 +1,8 @@
 import React from 'react';
+import tshirtImg from '../assets/images/product_graphic_tshirt_1791026509051.jpg';
+import overshirtImg from '../assets/images/product_linen_overshirt_1791026546218.jpg';
+import poloImg from '../assets/images/product_polo_shirt_1791026524042.jpg';
+import jeansImg from '../assets/images/product_denim_jeans_1791026535622.jpg';
 
 interface DressStyleBrowseProps {
   onSelectCategory: (style: 'casual' | 'formal' | 'party' | 'gym') => void;
@@ -14,28 +18,28 @@ export const DressStyleBrowse: React.FC<DressStyleBrowseProps> = ({
       id: 'casual' as const,
       name: 'Casual',
       nameAr: 'كاجوال عصري',
-      image: '/src/assets/images/product_graphic_tshirt_1791026509051.jpg',
+      image: tshirtImg,
       colSpan: 'sm:col-span-1 lg:col-span-1',
     },
     {
       id: 'formal' as const,
       name: 'Formal',
       nameAr: 'فورمال كلاسيك',
-      image: '/src/assets/images/product_linen_overshirt_1791026546218.jpg',
+      image: overshirtImg,
       colSpan: 'sm:col-span-2 lg:col-span-2',
     },
     {
       id: 'party' as const,
       name: 'Party',
       nameAr: 'سهرات ومناسبات',
-      image: '/src/assets/images/product_polo_shirt_1791026524042.jpg',
+      image: poloImg,
       colSpan: 'sm:col-span-2 lg:col-span-2',
     },
     {
       id: 'gym' as const,
       name: 'Gym',
       nameAr: 'رياضي مريح',
-      image: '/src/assets/images/product_denim_jeans_1791026535622.jpg',
+      image: jeansImg,
       colSpan: 'sm:col-span-1 lg:col-span-1',
     },
   ];
