@@ -91,18 +91,18 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                 <img
                   src={img}
                   alt={`Thumbnail ${index + 1}`}
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-cover"
                 />
               </button>
             ))}
           </div>
 
           {/* Main Showcase Image */}
-          <div className="flex-1 bg-[#F0EEED] rounded-2xl sm:rounded-3xl p-4 sm:p-8 flex items-center justify-center overflow-hidden aspect-4/5 sm:aspect-auto sm:min-h-[480px]">
+          <div className="flex-1 bg-[#F0EEED] rounded-2xl sm:rounded-3xl p-2 sm:p-4 flex items-center justify-center overflow-hidden aspect-4/5 sm:aspect-auto sm:min-h-[480px]">
             <img
               src={product.images[selectedImageIndex] || product.images[0]}
               alt={isArabic ? product.nameAr : product.name}
-              className="w-full h-full object-contain max-h-[520px] transition-transform duration-300 hover:scale-105"
+              className="w-full h-full object-cover rounded-xl sm:rounded-2xl max-h-[520px] transition-transform duration-300 hover:scale-105"
             />
           </div>
         </div>

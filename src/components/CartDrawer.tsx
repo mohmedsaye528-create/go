@@ -92,11 +92,11 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 className="flex items-center gap-3.5 pb-4 border-b border-zinc-100 group"
               >
                 {/* Thumbnail */}
-                <div className="w-20 h-20 bg-[#F0EEED] rounded-xl overflow-hidden shrink-0 flex items-center justify-center p-1.5">
+                <div className="w-20 h-20 bg-[#F0EEED] rounded-xl overflow-hidden shrink-0 flex items-center justify-center p-1">
                   <img
                     src={item.image}
                     alt={isArabic ? item.nameAr : item.name}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-cover rounded-lg"
                   />
                 </div>
 

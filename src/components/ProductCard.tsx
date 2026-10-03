@@ -31,7 +31,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             referrerPolicy="no-referrer"
             loading="lazy"
             onError={() => setImageError(true)}
-            className="w-full h-full object-contain object-center transition-transform duration-300 group-hover:scale-105"
+            className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
           />
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center bg-zinc-200 text-zinc-500 p-4 text-center">

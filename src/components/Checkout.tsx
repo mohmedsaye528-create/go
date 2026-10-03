@@ -712,7 +712,7 @@ export const Checkout: React.FC<CheckoutProps> = ({
                     <img
                       src={item.image}
                       alt={isArabic ? item.nameAr : item.name}
-                      className="w-full h-full object-contain"
+                      className="w-full h-full object-cover rounded-lg"
                     />
                   </div>
                   <div className="flex-1 min-w-0">
