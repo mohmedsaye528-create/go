@@ -20,6 +20,9 @@ export interface Product {
   sizes: string[];
   colors: ProductColor[];
   category: string;
+  categoryAr: string;
+  details: string[];
+  detailsAr: string[];
   isNewArrival?: boolean;
   isTopSelling?: boolean;
 }
@@ -47,6 +50,9 @@ export const products: Product[] = [
       { name: "White", nameAr: "أبيض", value: "#FFFFFF" }
     ],
     category: "casual",
+    categoryAr: "كاجوال",
+    details: ["100% premium heavyweight cotton", "Oversized structured fit", "Machine washable"],
+    detailsAr: ["قطن فاخر ثقيل 100%", "قصة أوفر سايز مريحة", "قابل للغسل في الغسالة"],
     isNewArrival: true,
     isTopSelling: true
   },
@@ -71,6 +77,9 @@ export const products: Product[] = [
       { name: "White", nameAr: "أبيض", value: "#FFFFFF" }
     ],
     category: "formal",
+    categoryAr: "رسمي",
+    details: ["Soft breathable piqué cotton", "Classic ribbed collar", "Machine washable"],
+    detailsAr: ["قطن بيكيه ناعم يسمح بالتهوية", "ياقة كلاسيكية مضلعة", "قابل للغسل في الغسالة"],
     isNewArrival: true
   },
   {
@@ -94,6 +103,12 @@ export const products: Product[] = [
       { name: "Grey", nameAr: "رمادي", value: "#808080" }
     ],
     category: "casual",
+    categoryAr: "كاجوال",
+    details: ["Heavy brushed cotton fleece", "Kangaroo pocket and adjustable hood", "Machine washable"],
+    detailsAr: ["قطن ثقيل ناعم من الداخل", "جيب أمامي وغطاء رأس قابل للتعديل", "قابل للغسل في الغسالة"],
     isTopSelling: true
   }
 ];
+
+// Backwards-compatible alias used across the app
+export const PRODUCTS: Product[] = products;
