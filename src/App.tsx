@@ -17,6 +17,7 @@ export default function App() {
   // Navigation / View State
   const [currentView, setCurrentView] = useState<'home' | 'product' | 'checkout'>('home');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(PRODUCTS[0]);
+  const [categoryFilter, setCategoryFilter] = useState<string | null>(null);
 
   // Language & RTL State (default Arabic for Egyptian brand, easily switchable to English)
   const [isArabic, setIsArabic] = useState<boolean>(() => {
@@ -84,16 +85,17 @@ export default function App() {
 
   const handleSelectCategoryFilter = (category: string | null) => {
     setCurrentView('home');
-    setTimeout(() => {
-      if (category === 'On Sale' || category === 'New Arrivals') {
+    if (category === 'On Sale' || category === 'New Arrivals') {
+      setCategoryFilter(null);
+      setTimeout(() => {
         const targetId = category === 'On Sale' ? 'top-selling' : 'new-arrivals';
         const el = document.getElementById(targetId);
         if (el) el.scrollIntoView({ behavior: 'smooth' });
-      } else {
-        const el = document.getElementById('new-arrivals');
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100);
+      }, 100);
+    } else {
+      setCategoryFilter(category);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const handleProceedToCheckout = () => {
@@ -137,6 +139,8 @@ export default function App() {
             onSelectCategoryFilter={handleSelectCategoryFilter}
             onShopNow={handleShopNow}
             isArabic={isArabic}
+            categoryFilter={categoryFilter}
+            onClearCategoryFilter={() => setCategoryFilter(null)}
           />
         )}
 

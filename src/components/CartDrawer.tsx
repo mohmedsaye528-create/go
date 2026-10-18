@@ -73,7 +73,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 </p>
                 <p className="text-xs text-zinc-500 max-w-xs">
                   {isArabic
-                    ? 'تصفح أحدث تشكيلة من الملابس القطنية الفاخرة واختر ما يناسبك.'
+                    ? 'تصفح أحدث تشكيلة من الأحذية والسنيكرز الأصلية واختر مقاسك.'
                     : 'Explore our latest collection of premium minimal apparel and add items.'}
                 </p>
               </div>

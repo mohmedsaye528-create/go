@@ -7,19 +7,17 @@ interface SizeGuideModalProps {
   isArabic: boolean;
 }
 
-export const SizeGuideModal: React.FC<SizeGuideModalProps> = ({
-  isOpen,
-  onClose,
-  isArabic,
-}) => {
+export const SizeGuideModal: React.FC<SizeGuideModalProps> = ({ isOpen, onClose, isArabic }) => {
   if (!isOpen) return null;
 
   const measurements = [
-    { size: 'S', chest: '102 cm (40")', length: '71 cm (28")', shoulder: '46 cm (18")' },
-    { size: 'M', chest: '108 cm (42.5")', length: '73 cm (28.7")', shoulder: '48 cm (19")' },
-    { size: 'L', chest: '114 cm (45")', length: '75 cm (29.5")', shoulder: '50 cm (19.7")' },
-    { size: 'XL', chest: '120 cm (47")', length: '77 cm (30.3")', shoulder: '52 cm (20.5")' },
-    { size: 'XXL', chest: '126 cm (49.5")', length: '79 cm (31")', shoulder: '54 cm (21.2")' },
+    { eu: '40', uk: '6', us: '7', foot: '25.0' },
+    { eu: '41', uk: '7', us: '8', foot: '25.7' },
+    { eu: '42', uk: '7.5', us: '8.5', foot: '26.0' },
+    { eu: '43', uk: '8.5', us: '9.5', foot: '26.7' },
+    { eu: '44', uk: '9.5', us: '10.5', foot: '27.4' },
+    { eu: '45', uk: '10.5', us: '11.5', foot: '28.0' },
+    { eu: '46', uk: '11', us: '12', foot: '28.5' },
   ];
 
   return (
@@ -34,71 +32,65 @@ export const SizeGuideModal: React.FC<SizeGuideModalProps> = ({
         className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl p-6 sm:p-8 animate-in fade-in zoom-in-95 duration-150"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
         <div className="flex items-center justify-between pb-4 border-b border-zinc-100">
           <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-900">
+            <div className="w-9 h-9 rounded-full bg-orange-100 flex items-center justify-center text-orange-700">
               <Ruler className="w-5 h-5" />
             </div>
             <div>
               <h3 id="size-guide-title" className="text-lg font-bold text-zinc-900">
-                {isArabic ? 'دليل المقاسات' : 'Size Guide'}
+                {isArabic ? 'دليل مقاسات الأحذية' : 'Shoe Size Guide'}
               </h3>
               <p className="text-xs text-zinc-500">
-                {isArabic ? 'القياسات بالسنتميتر لقصات الأوفر سايز والمقاس المريح' : 'All measurements in CM for relaxed & oversized fit'}
+                {isArabic ? 'حوّل مقاسك بين الأوروبي والإنجليزي والأمريكي' : 'Convert between EU, UK and US shoe sizes'}
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
             aria-label={isArabic ? 'إغلاق' : 'Close'}
-            className="p-2 rounded-full hover:bg-zinc-100 text-zinc-500 hover:text-zinc-900 transition-colors"
+            className="p-2 rounded-full hover:bg-zinc-100 text-zinc-500 hover:text-zinc-900 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        {/* Content Table */}
         <div className="mt-5 overflow-x-auto">
           <table className="w-full text-sm text-center border-collapse">
             <thead>
-              <tr className="bg-zinc-100/70 text-zinc-700 text-xs uppercase tracking-wider font-semibold">
-                <th className="py-3 px-3 rounded-l-lg">{isArabic ? 'المقاس' : 'Size'}</th>
-                <th className="py-3 px-3">{isArabic ? 'الصدر' : 'Chest'}</th>
-                <th className="py-3 px-3">{isArabic ? 'الطول' : 'Length'}</th>
-                <th className="py-3 px-3 rounded-r-lg">{isArabic ? 'الكتف' : 'Shoulder'}</th>
+              <tr className="bg-orange-50 text-zinc-700 text-xs uppercase tracking-wider font-semibold">
+                <th className="py-3 px-3 rounded-s-lg">{isArabic ? 'أوروبي EU' : 'EU'}</th>
+                <th className="py-3 px-3">{isArabic ? 'إنجليزي UK' : 'UK'}</th>
+                <th className="py-3 px-3">{isArabic ? 'أمريكي US' : 'US'}</th>
+                <th className="py-3 px-3 rounded-e-lg">{isArabic ? 'طول القدم (سم)' : 'Foot (cm)'}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-zinc-100 text-zinc-700">
               {measurements.map((row) => (
-                <tr key={row.size} className="hover:bg-zinc-50/70 transition-colors">
-                  <td className="py-3.5 px-3 font-bold text-zinc-900">{row.size}</td>
-                  <td className="py-3.5 px-3 tabular-nums">{row.chest}</td>
-                  <td className="py-3.5 px-3 tabular-nums">{row.length}</td>
-                  <td className="py-3.5 px-3 tabular-nums">{row.shoulder}</td>
+                <tr key={row.eu} className="hover:bg-zinc-50/70 transition-colors">
+                  <td className="py-3 px-3 font-bold text-zinc-900">{row.eu}</td>
+                  <td className="py-3 px-3 tabular-nums">{row.uk}</td>
+                  <td className="py-3 px-3 tabular-nums">{row.us}</td>
+                  <td className="py-3 px-3 tabular-nums">{row.foot}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
 
-        {/* Tip box */}
-        <div className="mt-5 p-3.5 bg-zinc-50 rounded-xl text-xs text-zinc-600 leading-relaxed border border-zinc-100">
-          <p className="font-semibold text-zinc-900 mb-1">
-            {isArabic ? '💡 نصيحة لاختيار المقاس:' : '💡 Sizing Tip:'}
-          </p>
+        <div className="mt-5 p-3.5 bg-orange-50 rounded-xl text-xs text-zinc-600 leading-relaxed border border-orange-100">
+          <p className="font-semibold text-zinc-900 mb-1">{isArabic ? 'نصيحة لاختيار المقاس:' : 'Sizing Tip:'}</p>
           <p>
             {isArabic
-              ? 'إذا كنت تفضل مظهر أوفر سايز واسع ومريح، اختر مقاسك المعتاد. إذا كنت تفضل قصة معتدلة مستقيمة، ننصح باختيار مقاس أصغر بدرجة واحدة.'
-              : 'Our garments feature a modern relaxed cut. For an authentic oversized drape, choose your true size. For a regular fit, take one size down.'}
+              ? 'قيس طول قدمك بالليل (القدم بتكون أكبر حاجة بسيطة) وضيف 0.5 سم. بين مقاسين؟ اختر الأكبر خصوصاً لأحذية الجري — ولو المقاس مظبطش، الاستبدال مجاني.'
+              : 'Measure your foot in the evening and add 0.5 cm. Between sizes? Go bigger, especially for running shoes — and size exchange is always free.'}
           </p>
         </div>
 
-        {/* Close Button */}
         <div className="mt-6 flex justify-end">
           <button
             onClick={onClose}
-            className="w-full sm:w-auto px-6 py-2.5 bg-zinc-900 hover:bg-zinc-800 text-white text-sm font-medium rounded-full transition-colors"
+            className="w-full sm:w-auto px-6 py-2.5 bg-zinc-900 hover:bg-zinc-800 text-white text-sm font-medium rounded-full transition-colors cursor-pointer"
           >
             {isArabic ? 'فهمت، شكراً' : 'Got it, thanks'}
           </button>

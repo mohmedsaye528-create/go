@@ -256,8 +256,8 @@ export const ProductPage: React.FC<ProductPageProps> = ({
             </div>
             <div className="p-2 space-y-1 border-x border-zinc-100">
               <ShieldCheck className="w-4 h-4 mx-auto text-zinc-900" />
-              <p className="font-semibold text-zinc-900">{isArabic ? 'قطن مصري 100%' : '100% Cotton'}</p>
-              <p className="text-[10px] text-zinc-400">{isArabic ? 'جودة فاخرة' : 'Combed jersey'}</p>
+              <p className="font-semibold text-zinc-900">{isArabic ? 'أصلي 100%' : '100% Authentic'}</p>
+              <p className="text-[10px] text-zinc-400">{isArabic ? 'ضمان معتمد' : 'Verified quality'}</p>
             </div>
             <div className="p-2 space-y-1">
               <RotateCcw className="w-4 h-4 mx-auto text-zinc-900" />
@@ -311,7 +311,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
           {activeTab === 'details' && (
             <div className="max-w-3xl space-y-4">
               <h3 className="font-bold text-zinc-900 text-base">
-                {isArabic ? 'مواصفات الخامات والصناعة:' : 'Fabric & Craftsmanship Specifications:'}
+                {isArabic ? 'مواصفات النعل والتصنيع:' : 'Sole & Construction Specifications:'}
               </h3>
               <ul className="space-y-2.5">
                 {(isArabic ? product.detailsAr : product.details).map((item, index) => (
@@ -332,8 +332,8 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                   rating: 5,
                   date: 'August 14, 2026',
                   text: isArabic
-                    ? 'الخامة بجد تحفة وتنافس براندات زارا وأحسن، قطن تقيل وقصة الأوفر سايز مظبوطة بالمللي.'
-                    : 'The fabric quality is beyond expectations! Heavy cotton, true oversized drape, and survived 5 washes without shrinking.',
+                    ? 'النعل بجد تحفة ومريح في الجري لمسافات طويلة، والمقاس مظبوط بالمللي زي جدول المقاسات.'
+                    : 'The cushioning is beyond expectations! Ran 300km in them so far and the sole still feels brand new.',
                 },
                 {
                   author: isArabic ? 'يوسف الشناوي (الإسكندرية)' : 'Youssef S. (Alexandria)',
@@ -341,7 +341,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                   date: 'August 19, 2026',
                   text: isArabic
                     ? 'التوصيل مع بوسطة كان سريع جداً واستلمت في خلال يومين، الألوان زي الصور بالضبط.'
-                    : 'Fast shipping with Bosta courier, delivered in 2 days. The color and stitch details match the photos completely.',
+                    : 'Fast shipping with Bosta courier, delivered in 2 days. The color and details match the photos completely.',
                 },
               ].map((rev, idx) => (
                 <div key={idx} className="p-5 rounded-2xl border border-zinc-200/80 bg-white space-y-2">
@@ -366,8 +366,8 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                 </p>
                 <p className="text-xs text-zinc-600">
                   {isArabic
-                    ? 'يمكنك الاطلاع على جدول المقاسات بالضغط على "دليل المقاسات" أعلاه للتعرف على محيط الصدر وطول التي شيرت.'
-                    : 'Click on the "Size Guide" button above to view precise measurements in centimeters.'}
+                    ? 'يمكنك الاطلاع على جدول المقاسات بالضغط على "دليل المقاسات" أعلاه لتحويل مقاسك الأوروبي والإنجليزي والأمريكي بدقة.'
+                    : 'Click on the "Size Guide" button above to convert your EU, UK and US shoe size precisely.'}
                 </p>
               </div>
               <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-100">

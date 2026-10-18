@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star, CheckCircle } from 'lucide-react';
+import { Star, CheckCircle, Truck, ShieldCheck, RotateCcw, Banknote, X } from 'lucide-react';
 import { PRODUCTS, Product } from '../data/products';
 import { Hero } from '../components/Hero';
 import { ProductGrid } from '../components/ProductGrid';
@@ -11,6 +11,8 @@ interface HomeProps {
   onSelectCategoryFilter: (category: string | null) => void;
   onShopNow: () => void;
   isArabic: boolean;
+  categoryFilter?: string | null;
+  onClearCategoryFilter?: () => void;
 }
 
 export const Home: React.FC<HomeProps> = ({
@@ -19,7 +21,25 @@ export const Home: React.FC<HomeProps> = ({
   onSelectCategoryFilter,
   onShopNow,
   isArabic,
+  categoryFilter,
+  onClearCategoryFilter,
 }) => {
+  if (categoryFilter) {
+    const filtered = PRODUCTS.filter((p) => p.category === categoryFilter);
+    const catName = filtered[0] ? (isArabic ? filtered[0].categoryAr : filtered[0].category) : categoryFilter;
+    return (
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="flex items-center justify-between mb-2">
+          <h1 className="text-2xl sm:text-4xl font-extrabold uppercase tracking-tight text-zinc-950 capitalize">{catName}</h1>
+          <button type="button" onClick={onClearCategoryFilter} className="inline-flex items-center gap-1.5 text-sm font-semibold text-orange-700 hover:text-orange-800 cursor-pointer">
+            <X className="w-4 h-4" />{isArabic ? 'عرض الكل' : 'View All'}
+          </button>
+        </div>
+        <p className="text-sm text-zinc-500 mb-4">{filtered.length} {isArabic ? 'منتج' : 'products'}</p>
+        <ProductGrid title={String(catName)} titleAr={String(catName)} products={filtered} onSelectProduct={onSelectProduct} onQuickAdd={onQuickAdd} isArabic={isArabic} showDivider={false} />
+      </div>
+    );
+  }
   const newArrivals = PRODUCTS.filter((p) => p.isNewArrival);
   const topSelling = PRODUCTS.filter((p) => p.isTopSelling);
 
@@ -28,22 +48,22 @@ export const Home: React.FC<HomeProps> = ({
       name: isArabic ? 'سارة المنشاوي' : 'Sarah M.',
       city: isArabic ? 'التجمع الخامس، القاهرة' : 'New Cairo',
       quote: isArabic
-        ? '"أفضل تيشيرتات قطن اشتريتها في مصر! القماش تقيل ومش بيكش بعد الغسيل والتفاصيل ممتازة."'
-        : '"I\'m blown away by the quality and craftsmanship. The oversized silhouette looks incredible and fits exactly like luxury European streetwear brands."',
+        ? '"أفضل حذاء جري جربته! النعل مريح جداً والمقاس طلع مظبوط بالمللي بفضل جدول المقاسات."'
+        : '"Blown away by the cushioning. Ran a half marathon in them straight out of the box — zero blisters, pure comfort."',
     },
     {
       name: isArabic ? 'أحمد الشاذلي' : 'Alex K.',
       city: isArabic ? 'سموحة، الإسكندرية' : 'Alexandria',
       quote: isArabic
-        ? '"القصة مظبوطة جداً والأوردر وصلني في 48 ساعة مع شركة بوسطة. تجربة التسوق والدفع عند الاستلام سلسة جداً."'
-        : '"Finding apparel that fits my style was always hard until I ordered from SHOP.CO. The Egyptian cotton is super soft and breathable."',
+        ? '"المقاس مظبوط جداً والأوردر وصلني في 48 ساعة مع شركة بوسطة. تجربة التسوق والدفع عند الاستلام سلسة جداً."'
+        : '"Finding original sneakers in Egypt was always hard until KHATWA. Authentic, fairly priced, and they fit perfectly."',
     },
     {
       name: isArabic ? 'عمر فاروق' : 'James L.',
       city: isArabic ? 'الشيخ زايد، الجيزة' : 'Sheikh Zayed',
       quote: isArabic
-        ? '"خدمة العملاء ممتازة والبناطيل خامتها مريحة وفخمة جداً، هكرر الشراء بدون تردد."'
-        : '"As someone who values minimalist fashion, this brand hits all the right notes. Clean lines, no garish logos, high-tier fabric."',
+        ? '"خدمة العملاء ممتازة واستبدلت المقاس مجاناً من غير أي وجع دماغ، هكرر الشراء بدون تردد."'
+        : '"As a basketball player I need grip and ankle support — these delivered both. Best court shoes I have owned."',
     },
   ];
 
@@ -78,7 +98,24 @@ export const Home: React.FC<HomeProps> = ({
         />
       </div>
 
-      {/* 4. Browse By Dress Style */}
+      {/* Features strip */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 py-4">
+          {[
+            { icon: Truck, ar: 'شحن سريع 24-72 ساعة', en: 'Fast 24-72h Shipping' },
+            { icon: ShieldCheck, ar: 'أصلي 100% بضمان', en: '100% Authentic' },
+            { icon: RotateCcw, ar: 'استبدال مقاس مجاني', en: 'Free Size Exchange' },
+            { icon: Banknote, ar: 'الدفع عند الاستلام', en: 'Cash on Delivery' },
+          ].map((f, i) => (
+            <div key={i} className="flex items-center gap-3 bg-orange-50 border border-orange-100 rounded-2xl px-4 py-4">
+              <f.icon className="w-6 h-6 text-orange-600 shrink-0" />
+              <span className="text-xs sm:text-sm font-bold text-zinc-800">{isArabic ? f.ar : f.en}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 4. Browse By Activity */}
       <DressStyleBrowse
         onSelectCategory={(style) => onSelectCategoryFilter(style)}
         isArabic={isArabic}

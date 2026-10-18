@@ -29,7 +29,7 @@ export const OrderSummary: React.FC<OrderSummaryProps> = ({
     if (!promoInput.trim()) return;
 
     const code = promoInput.trim().toUpperCase();
-    if (code === 'SHOP20' || code === 'FIRST20' || code === 'EGYPT') {
+    if (code === 'KHATWA20' || code === 'SHOP20' || code === 'FIRST20' || code === 'EGYPT') {
       setActiveDiscountRate(0.2);
       setAppliedPromo(code);
       setPromoError(null);
@@ -100,7 +100,7 @@ export const OrderSummary: React.FC<OrderSummaryProps> = ({
                 setPromoInput(e.target.value);
                 setPromoError(null);
               }}
-              placeholder={isArabic ? 'أدخل كود الخصم (جرب SHOP20)' : 'Add promo code (try SHOP20)'}
+              placeholder={isArabic ? 'أدخل كود الخصم (جرب KHATWA20)' : 'Add promo code (try KHATWA20)'}
               className="w-full bg-[#F0F0F0] text-sm rounded-full ps-9 pe-3 py-2.5 outline-hidden focus:ring-1 focus:ring-zinc-400 placeholder:text-zinc-400"
             />
           </div>

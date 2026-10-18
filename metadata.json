@@ -1,6 +1,8 @@
 {
-  "name": "SHOP.CO | Egyptian Minimal Fashion Store",
-  "description": "Production-ready, premium minimal e-commerce storefront for an Egyptian clothing brand with bilingual Arabic/English, instant checkout, and Egyptian delivery integration.",
+  "name": "KHATWA | خطوة — Egyptian Shoe & Sneaker Store",
+  "description": "Egyptian shoe store for authentic sneakers, running, basketball and training shoes with bilingual Arabic/English, EU sizes 40-46, instant checkout, and nationwide Egyptian delivery.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

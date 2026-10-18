@@ -219,7 +219,7 @@ export const Checkout: React.FC<CheckoutProps> = ({
   if (submittedOrder) {
     const govObj = GOVERNORATES.find((g) => g.id === submittedOrder.governorate);
     const whatsappMsg = encodeURIComponent(
-      `مرحباً SHOP.CO، أود متابعة طلبي رقم #${submittedOrder.id} بقيمة ${submittedOrder.total} ج.م.`
+      `مرحباً KHATWA، أود متابعة طلبي رقم #${submittedOrder.id} بقيمة ${submittedOrder.total} ج.م.`
     );
 
     return (
@@ -763,7 +763,7 @@ export const Checkout: React.FC<CheckoutProps> = ({
             <ul className="space-y-1 list-disc list-inside text-[11px] text-zinc-600">
               <li>{isArabic ? 'معاينة المنتج مع مندوب الشحن قبل الاستلام' : 'Inspect package before receiving with courier'}</li>
               <li>{isArabic ? 'استبدال واسترجاع مجاني خلال 14 يوم' : 'Free 14-day exchange and return policy'}</li>
-              <li>{isArabic ? 'قطن مصري 100% عالي الجودة ومضمون' : '100% authentic Egyptian combed cotton'}</li>
+              <li>{isArabic ? 'أحذية أصلية 100% ومضمونة' : '100% authentic guaranteed shoes'}</li>
             </ul>
           </div>
         </div>

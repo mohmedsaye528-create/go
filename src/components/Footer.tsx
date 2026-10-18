@@ -63,8 +63,8 @@ export const Footer: React.FC<FooterProps> = ({
                 <Check className="w-5 h-5" />
                 <span>
                   {isArabic
-                    ? 'شكراً لاشتراكك! كود خصمك الترويجي: SHOP20'
-                    : 'Thank you! Use promo code SHOP20 for 20% off.'}
+                    ? 'شكراً لاشتراكك! كود خصمك الترويجي: KHATWA20'
+                    : 'Thank you! Use promo code KHATWA20 for 20% off.'}
                 </span>
               </div>
             )}
@@ -82,12 +82,12 @@ export const Footer: React.FC<FooterProps> = ({
               onClick={onNavigateHome}
               className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-zinc-950"
             >
-              SHOP.CO
+              KHATWA
             </button>
             <p className="text-xs sm:text-sm text-zinc-500 max-w-sm leading-relaxed">
               {isArabic
-                ? 'علامة أزياء مصرية تقدم تصاميم كاجوال عصرية بأعلى معايير جودة القطن المصري الصافي، لإطلالة يومية مريحة وأنيقة تدوم طويلاً.'
-                : 'Premium Egyptian apparel crafted from 100% fine combed cotton. Minimal streetwear and everyday elevated essentials built to last.'}
+                ? 'متجر أحذية مصري متخصص في السنيكرز وأحذية الجري والملاعب الأصلية، بمقاسات أوروبية من 40 لـ 46 وتوصيل سريع لكل المحافظات.'
+                : 'Egyptian shoe store for authentic sneakers, running and court shoes — EU sizes 40-46 with fast nationwide delivery.'}
             </p>
             {/* Social Links */}
             <div className="flex items-center gap-3 pt-2">
@@ -232,7 +232,7 @@ export const Footer: React.FC<FooterProps> = ({
 
         {/* 3. Bottom Bar */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
-          <p>© 2000-2026 SHOP.CO. {isArabic ? 'جميع الحقوق محفوظة' : 'All Rights Reserved'}.</p>
+          <p>© 2000-2026 KHATWA. {isArabic ? 'جميع الحقوق محفوظة' : 'All Rights Reserved'}.</p>
           <div className="flex items-center gap-2">
             <span className="px-2 py-1 bg-white rounded border border-zinc-200 text-[10px] font-bold text-zinc-700">
               VISA

@@ -93,7 +93,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={onNavigateHome}
               className="text-2xl sm:text-3xl font-black tracking-tighter text-zinc-950 uppercase select-none hover:opacity-90 transition-opacity"
             >
-              SHOP.CO
+              KHATWA
             </button>
           </div>
 
@@ -141,7 +141,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={
-                  isArabic ? 'ابحث عن التي شيرتات، البناطيل، المقاسات...' : 'Search for products, fits, cotton tees...'
+                  isArabic ? 'ابحث عن أحذية جري، سنيكرز، مقاسات...' : 'Search running shoes, sneakers, sizes...'
                 }
                 className="w-full bg-[#F0F0F0] text-zinc-900 text-sm rounded-full ps-10 pe-4 py-2.5 outline-hidden focus:bg-[#EAEAEA] focus:ring-1 focus:ring-zinc-400 transition-all placeholder:text-zinc-400"
               />
@@ -236,7 +236,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               {/* Header */}
               <div className="flex items-center justify-between pb-6 border-b border-zinc-100">
                 <span className="text-2xl font-black tracking-tight text-zinc-950 uppercase">
-                  SHOP.CO
+                  KHATWA
                 </span>
                 <button
                   type="button"
@@ -275,17 +275,17 @@ export const Navbar: React.FC<NavbarProps> = ({
                 </button>
                 <button
                   type="button"
-                  onClick={() => handleNavCategory('Pants')}
+                  onClick={() => handleNavCategory('running')}
                   className="w-full text-start text-base font-semibold text-zinc-900 py-2 hover:text-black transition-colors"
                 >
-                  {isArabic ? 'بناطيل وجينز' : 'Pants & Denim'}
+                  {isArabic ? 'أحذية جري' : 'Running'}
                 </button>
                 <button
                   type="button"
-                  onClick={() => handleNavCategory('T-Shirts')}
+                  onClick={() => handleNavCategory('lifestyle')}
                   className="w-full text-start text-base font-semibold text-zinc-900 py-2 hover:text-black transition-colors"
                 >
-                  {isArabic ? 'تي شيرتات أوفر سايز' : 'Oversized Tees'}
+                  {isArabic ? 'سنيكرز لايف ستايل' : 'Lifestyle Sneakers'}
                 </button>
               </div>
             </div>
